@@ -23,5 +23,5 @@ url={https://openreview.net/forum?id=WHlt5tLz12T}
 
 This is my last year as a master student, I am busy writing my thesis and preparing for my graduation. I'll try my best to clean the codes and upload the pre-trained models as soon as possible.
 
-Furthermore, I consider the idea of 3D-aware representation learning proposed in our paper is much more important than the code itself. Lifting and adv training is feasible for human-centric tasks, but how to do the 3D-aware representation learning for other tasks (e.g., Object Dection) is worth further research! 
+Furthermore, we hope our work can inspire others when doing 3D-aware representation learning. Lifting and adv training is feasible for human-centric tasks, but how to do the 3D-aware representation learning for other tasks (e.g., Object Dection) is worth further research! 
 
