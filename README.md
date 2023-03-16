@@ -3,8 +3,8 @@
   <img src="https://user-images.githubusercontent.com/53289490/222353213-a57db9b2-1177-4260-8703-9240c923f368.png" width="800">
 </p>
 
-[[`paper`]([https://arxiv.org/abs/2110.07604](https://openreview.net/forum?id=WHlt5tLz12T))]
-[[`Project Page`]([https://jasonyzhang.com/ners/](https://richardchen20.github.io/LiftedCL/))]
+[[`paper`](https://openreview.net/forum?id=WHlt5tLz12T)]
+[[`Project Page`](https://richardchen20.github.io/LiftedCL/)]
 
 This is a PyTorch implementation of the ICLR23 paper: [LiftedCL](https://openreview.net/forum?id=WHlt5tLz12T):
 ```
