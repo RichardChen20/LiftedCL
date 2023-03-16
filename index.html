@@ -1,304 +1,239 @@
-<script src="http://www.google.com/jsapi" type="text/javascript"></script> 
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script type="text/javascript">google.load("jquery", "1.3.2");</script>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./resources/style.css" media="screen" />
+<link rel="icon" type="image/x-icon" href="./resources/ri-favicon.ico">
 
-<style type="text/css">
-	body {
-		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-		font-weight:300;
-		font-size:18px;
-		margin-left: auto;
-		margin-right: auto;
-		width: 1100px;
-	}
-	
-	h1 {
-		font-size:32px;
-		font-weight:300;
-	}
-	
-	.disclaimerbox {
-		background-color: #eee;		
-		border: 1px solid #eeeeee;
-		border-radius: 10px ;
-		-moz-border-radius: 10px ;
-		-webkit-border-radius: 10px ;
-		padding: 20px;
-	}
+<html lang="en">
 
-	video.header-vid {
-		height: 140px;
-		border: 1px solid black;
-		border-radius: 10px ;
-		-moz-border-radius: 10px ;
-		-webkit-border-radius: 10px ;
-	}
-	
-	img.header-img {
-		height: 140px;
-		border: 1px solid black;
-		border-radius: 10px ;
-		-moz-border-radius: 10px ;
-		-webkit-border-radius: 10px ;
-	}
-	
-	img.rounded {
-		border: 1px solid #eeeeee;
-		border-radius: 10px ;
-		-moz-border-radius: 10px ;
-		-webkit-border-radius: 10px ;
-	}
-	
-	a:link,a:visited
-	{
-		color: #1367a7;
-		text-decoration: none;
-	}
-	a:hover {
-		color: #208799;
-	}
-	
-	td.dl-link {
-		height: 160px;
-		text-align: center;
-		font-size: 22px;
-	}
-	
-	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
-		box-shadow:
-		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
-		5px 5px 0 0px #fff, /* The second layer */
-		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
-		10px 10px 0 0px #fff, /* The third layer */
-		10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
-		15px 15px 0 0px #fff, /* The fourth layer */
-		15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
-		20px 20px 0 0px #fff, /* The fifth layer */
-		20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
-		25px 25px 0 0px #fff, /* The fifth layer */
-		25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
-		margin-left: 10px;
-		margin-right: 45px;
-	}
-
-	.paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
-		box-shadow:
-		0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
-
-		margin-left: 10px;
-		margin-right: 45px;
-	}
-
-
-	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
-		box-shadow:
-		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
-		5px 5px 0 0px #fff, /* The second layer */
-		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
-		10px 10px 0 0px #fff, /* The third layer */
-		10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
-		margin-top: 5px;
-		margin-left: 10px;
-		margin-right: 30px;
-		margin-bottom: 5px;
-	}
-	
-	.vert-cent {
-		position: relative;
-		top: 50%;
-		transform: translateY(-50%);
-	}
-	
-	hr
-	{
-		border: 0;
-		height: 1px;
-		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-	}
-</style>
-
-<html>
 <head>
-	<title>This is my paper title</title>
-	<meta property="og:image" content="Path to my teaser.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
-	<meta property="og:title" content="LiftedCL: Lifting Contrastive Learning for Human-Centric Perception" />
-	<meta property="og:description" content="Paper description." />
+    <title>LiftedCL</title>
+    <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/
+        if you update and want to force Facebook to re-scrape. -->
+    <meta property="og:image" content="https://jasonyzhang.com/ners/resources/web_teaser.png" />
+    <meta property="og:title"
+        content="LiftedCL: Lifting Contrastive Learning for Human-Centric Perception" />
+    <meta property="og:description"
+        content="Given in-the-wild multiview images, noisy cameras, and a rough shape initialization, we recover the shape deformation, texture, and illumination." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- Get from Google Analytics -->
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src=""></script> 
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97476543-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-		gtag('config', 'UA-75863369-6');
-	</script>
+        gtag('config', 'UA-97476543-1');
+    </script>
+
 </head>
 
 <body>
-	<br>
-	<center>
-		<span style="font-size:36px">Creative and Descriptive Paper Title</span>
-		<table align=center width=600px>
-			<table align=center width=600px>
-				<tr>
-					<td align=center width=100px>
-						<center>
-							<span style="font-size:24px"><a href="https://en.wikipedia.org/wiki/James_J._Gibson">First Author</a></span>
-						</center>
-					</td>
-					<td align=center width=100px>
-						<center>
-							<span style="font-size:24px"><a href="https://en.wikipedia.org/wiki/James_J._Gibson">Second Author</a></span>
-						</center>
-					</td>
-					<td align=center width=100px>
-						<center>
-							<span style="font-size:24px"><a href="https://en.wikipedia.org/wiki/James_J._Gibson">Third Author</a></span>
-						</center>
-					</td>
-				</tr>
-			</table>
-			<table align=center width=250px>
-				<tr>
-					<td align=center width=120px>
-						<center>
-							<span style="font-size:24px"><a href=''>[Paper]</a></span>
-						</center>
-					</td>
-					<td align=center width=120px>
-						<center>
-							<span style="font-size:24px"><a href='https://github.com/richzhang/webpage-template'>[GitHub]</a></span><br>
-						</center>
-					</td>
-				</tr>
-			</table>
-		</table>
-	</center>
+    <div class="container">
+        <div class="title">
+            LiftedCL: Lifting Contrastive Learning for Human-Centric Perception
+        </div>
 
-	<center>
-		<table align=center width=850px>
-			<tr>
-				<td width=260px>
-					<center>
-						<img class="round" style="width:500px" src="./resources/teaser.png"/>
-					</center>
-				</td>
-			</tr>
-		</table>
-		<table align=center width=850px>
-			<tr>
-				<td>
-					This was a template originally made for <a href="http://richzhang.github.io/colorization/">Colorful Image Colorization</a>. The code can be found in this <a href="https://github.com/richzhang/webpage-template">repository</a>.
-				</td>
-			</tr>
-		</table>
-	</center>
+        <br>
+        <br>
 
-	<hr>
+        <div class="author">
+            <a href="https://richardchen20.github.io/">Ziwei Chen</a><sup>1</sup>
+        </div>
+        <div class="author">
+            <a href="https://sites.google.com/site/utsqiangli2/">Qiang Li</a><sup>2*</sup>
+        </div>
+        <div class="author">
+            <a href="https://scholar.google.com/citations?user=96lsfiUAAAAJ&hl=en">Xiaofeng Wang</a><sup>3</sup>
+        </div>
+        <div class="author">
+            <a href="https://dblp.org/pid/99/3602.html">Wankou Yang</a><sup>1*</sup>
+        </div>
 
-	<table align=center width=850px>
-		<center><h1>Abstract</h1></center>
-		<tr>
-			<td>
-				This is my abstract.
-			</td>
-		</tr>
-	</table>
-	<br>
+        <br>
+        <br>
 
-	<hr>
-	<center><h1>Talk</h1></center>
-	<p align="center">
-		<iframe width="660" height="395" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
-	</p>
+        <div class="affiliation"><sup>1</sup>Southeast University</div>
+        <div class="affiliation"><sup>2</sup>kuaishou Technology</div>
+        <div class="affiliation"><sup>3</sup>Chinese Academy of Sciences</div>
 
-	<table align=center width=800px>
-		<br>
-		<tr>
-			<center>
-				<span style="font-size:28px"><a href=''>[Slides]</a>
-				</span>
-			</center>
-		</tr>
-	</table>
-	<hr>
+        <br>
+        <br>
 
-	<center><h1>Code</h1></center>
+        <div class="affiliation">ICLR 2023</div>
+        <br>
+        <br>
 
-	<table align=center width=420px>
-		<center>
-			<tr>
-				<td>
-				</td>
-			</tr>
-		</center>
-	</table>
-	<table align=center width=400px>
-		<tr>
-			<td align=center width=400px>
-				<center>
-					<td><img class="round" style="width:450px" src="./resources/method_diagram.png"/></td>
-				</center>
-			</td>
-		</tr>
-	</table>
-	<table align=center width=850px>
-		<center>
-			<tr>
-				<td>
-					Short description if wanted
-				</td>
-			</tr>
-		</center>
-	</table>
-	<table align=center width=800px>
-		<br>
-		<tr><center>
-			<span style="font-size:28px">&nbsp;<a href='https://github.com/richzhang/webpage-template'>[GitHub]</a>
-			</center>
-		</span>
-	</table>
-	<br>
-	<hr>
-	<table align=center width=450px>
-		<center><h1>Paper and Supplementary Material</h1></center>
-		<tr>
-			<td><a href=""><img class="layered-paper-big" style="height:175px" src="./resources/paper.png"/></a></td>
-			<td><span style="font-size:14pt">F. Author, S. Author, T. Author.<br>
-				<b>Creative and Descriptive Paper Title.</b><br>
-				In Conference, 20XX.<br>
-				(hosted on <a href="">ArXiv</a>)<br>
-				<!-- (<a href="./resources/camera-ready.pdf">camera ready</a>)<br> -->
-				<span style="font-size:4pt"><a href=""><br></a>
-				</span>
-			</td>
-		</tr>
-	</table>
-	<br>
+        <div class="links"><a href="https://openreview.net/pdf?id=WHlt5tLz12T">[Paper]</a></div>
+        <div class="links"><a href="https://github.com/RichardChen20/LiftedCL">[Video]</a></div>
+        <div class="links"><a href="https://github.com/RichardChen20/LiftedCL">[Code]</a></div>
+        <!-- <div class="links"><a href="./paper_figures">[Figures]</a></div> -->
+        <div class="links"><a href="https://github.com/RichardChen20/LiftedCL">[Weights]</a></div>
+        <br>
+        <br>
+        <div class="teaser-mid preview">
+            <img style="width:100%;" src="./resources/images/liftedcl_pretrain.png" alt="Model overview figure" />
+            <br>
+            <i>
+                The backbone network pre-trained by LiftedCL can be transferred to various human-centric downstream tasks including human pose estimation, human shape recovery and human parsing.
+            </i>
+        </div>
+        <!-- 
+        <div class="teaser-right">
+            <video autoplay loop muted playsinline width="100%">
+                <source src="resources/videos/ners_wild_teaser.mp4" type="video/mp4">
+            </video>
+            <br>
+            <i>
+                We demonstrate the generality of NeRS on assorted objects.
+            </i>
+        </div> -->
 
-	<table align=center width=600px>
-		<tr>
-			<td><span style="font-size:14pt"><center>
-				<a href="./resources/bibtex.txt">[Bibtex]</a>
-			</center></td>
-		</tr>
-	</table>
+        <br><br>
 
-	<hr>
-	<br>
+        <h1>Abstract</h1>
+        <p>
+            Human-centric perception targets for understanding human body pose, shape and segmentation. Pre-training the model 
+            on large-scale datasets and fine-tuning it on specific tasks has become a well-established paradigm in human-centric 
+            perception. Recently, self-supervised learning methods have re-investigated contrastive learning to achieve superior 
+            performance on various downstream tasks. When handling human-centric perception, there 
+            still remains untapped potential since 3D human structure information is neglected during the task-agnostic 
+            pre-training. In this paper, we propose the Lifting Contrastive Learning (LiftedCL) to obtain 3D-aware
+            human-centric representations which absorb 3D human structure information. In particular, to induce the 
+            learning process, a set of 3D skeletons is randomly sampled by resorting to 3D human kinematic prior. 
+            With this set of generic 3D samples, 3D human structure information can be learned into 3D-aware representations through
+            adversarial learning. Empirical results demonstrate that LiftedCL outperforms state-of-the-art self-supervised 
+            methods on four human-centric downstream tasks, including 2D and 3D human pose estimation (0.4% mAP and 
+            1.8 mm MPJPE improvement on COCO 2D pose estimation and Human3.6M 3D pose estimation), human shape recovery and human parsing.
+        </p>
 
-	<table align=center width=900px>
-		<tr>
-			<td width=400px>
-				<left>
-					<center><h1>Acknowledgements</h1></center>
-					This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a href="https://github.com/richzhang/webpage-template">here</a>.
-				</left>
-			</td>
-		</tr>
-	</table>
+        <br><br>
+        <hr>
 
-<br>
+        <h1>Paper</h1>
+
+        <div class="paper-thumbnail">
+            <a href="https://openreview.net/pdf?id=WHlt5tLz12T">
+                <img class="layered-paper-big" width="100%" src="./resources/images/liftedcl_paper.png"
+                    alt="Paper thumbnail." />
+            </a>
+        </div>
+        <div class="paper-info">
+            <h4><a href="https://openreview.net/pdf?id=WHlt5tLz12T">LiftedCL: Lifting Contrastive Learning for Human-Centric Perception </a></h4>
+            <h5>
+                <!-- Jason&nbsp;Y.&nbsp;Zhang, Gengshan&nbsp;Yang, Shubham&nbsp;Tulsiani*, and Deva&nbsp;Ramanan* -->
+                Ziwei Chen, Qiang Li, Xiaofeng Wang, and Wankou Yang
+            </h5>
+            <pre><code>@inproceedings{
+                chen2023liftedcl,
+                title={Lifted{CL}: Lifting Contrastive Learning for Human-Centric Perception},
+                author={Ziwei Chen and Qiang Li and Xiaofeng Wang and Wankou Yang},
+                booktitle={The Eleventh International Conference on Learning Representations },
+                year={2023},
+                url={https://openreview.net/forum?id=WHlt5tLz12T}
+                }
+            </code></pre>
+        </div>
+
+        <br><br>
+        <hr><br>
+
+        <!-- <h1>Video</h1>
+
+        <div class="video-container">
+
+            <iframe src="https://www.youtube.com/embed/zVyaw_sn1xM" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+        <br><br>
+        <hr> -->
+
+        <h1>Code</h1>
+        <a href="https://github.com/RichardChen20/LiftedCL">
+            <img style="width:80%;" src="./resources/images/liftedcl_overall.png" alt="Model overview figure" />
+        </a>
+        <br>
+        <a class="links" href="https://github.com/RichardChen20/LiftedCL">[GitHub]</a>
+
+        <br><br>
+        <hr>
+        
+        <!--
+        <h1>Data</h1>
+        <div class="mesh-container">
+            <div class="mesh">
+
+                <model-viewer src="./resources/meshes/7246694387.glb" alt="A 3D model of a car" ar
+                    ar-modes="webxr scene-viewer quick-look" environment-image="neutral" camera-orbit="0deg 75deg 105%"
+                    auto-rotate camera-controls>
+                </model-viewer>
+            </div>
+            <div class="mesh">
+
+                <model-viewer src="./resources/meshes/espresso.glb" alt="A 3D model of an Espresso Machine" ar
+                    ar-modes="webxr scene-viewer quick-look" environment-image="neutral"
+                    camera-orbit="180deg 75deg 105%" auto-rotate camera-controls>
+                </model-viewer>
+            </div>
+        </div>
+        <br>
+
+        <a class="links"
+            href="https://drive.google.com/file/d/1P7BhDyUPhf4IF2FOWwddztYvjtIxR3II/view?usp=sharing">[Multi-view
+            Marketplace Cars (on
+            Google Drive)]</a>
+
+        <br>
+        Directions on how to download and use the data are on the <a
+            href="https://github.com/jasonyzhang/ners#running-on-mvmc"> Github readme</a>.
+
+
+        <br><br>
+        <hr>
+
+        <h1><a href="http://www.michaelhasey.com/deep-vernacular-summary">Reconstructing Ukrainian Churches</a></h1>
+        <p>Check out <a href="http://www.michaelhasey.com/">Michael Hasey's</a> <a
+                href="http://www.michaelhasey.com/deep-vernacular-summary">thesis</a>
+            analyzing
+            the architecture of Ukrainian
+            churches by reconstructing over 300 NeRS models from online images!</p>
+        <br>
+        <div class="mesh-container">
+            <div class="mesh">
+                <img src="resources/churches/Church_of_St._Paraskevi.jpg" width="195.3px">
+            </div>
+            <div class="mesh">
+                <video autoplay loop muted playsinline width="249.6px">
+                    <source src="resources/churches/40_Church of St. Paraskevi.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="mesh-container">
+            <div class="mesh">
+                <img src="resources/churches/Chuch_of_the_Transfer_of_the_Relics_of_St._Nicholas.jpg" width="220.8px">
+            </div>
+            <div class="mesh">
+                <video autoplay loop muted playsinline width="241.9px">
+                    <source src="resources/churches/95_Church of the Transfer of the Relics of St. Nicholas.mp4"
+                        type="video/mp4">
+                </video>
+            </div>
+        </div> -->
+        <br><br>
+        <!-- <hr> -->
+        <h1>Acknowledgements</h1>
+        <p>
+            This work was supported by the National Natural Science Foundation of China under No. 62276061.
+            <a href=" https://github.com/jasonyzhang/webpage-template">Webpage
+                template</a>.
+        </p>
+
+        <br><br>
+    </div>
+
 </body>
+
 </html>
