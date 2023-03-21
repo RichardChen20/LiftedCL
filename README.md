@@ -5,6 +5,7 @@
 
 [[`paper`](https://openreview.net/forum?id=WHlt5tLz12T)]
 [[`Project Page`](https://richardchen20.github.io/LiftedCL/)]
+[[`Weights`](https://drive.google.com/file/d/1hCKUx8pXctfDBXVKw32VTuX1Nb637BlD/view?usp=sharing)]
 
 This is a PyTorch implementation of the ICLR23 paper: [LiftedCL](https://openreview.net/forum?id=WHlt5tLz12T):
 ```
