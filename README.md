@@ -25,7 +25,7 @@ url={https://openreview.net/forum?id=WHlt5tLz12T}
 
 ## Updates
 
-[03/2023] Pre-trained Resnet-50 model (IN+CC 200 epoch) release!
+[03/2023] Pre-trained ResNet-50 model (IN+CC 200 epoch) release!
 
 [01/2023] LiftedCL has been accepted to ICLR 2023:partying_face:!
 
