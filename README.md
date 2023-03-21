@@ -23,6 +23,12 @@ url={https://openreview.net/forum?id=WHlt5tLz12T}
   <img src="https://user-images.githubusercontent.com/53289490/222353348-e9d1ad9e-291c-409f-97fd-e9f06b385ca5.png" width="800">
 </p>
 
+## Updates
+
+[03/2023] Pre-trained Resnet-50 model (IN+CC 200 epoch) release!
+
+[01/2022] LiftedCL is accepted to ICLR 2023:partying_face:!
+
 ### Notes
 
 This is my last year as a master student, I am busy writing my thesis and preparing for my graduation. I'll try my best to clean the codes and upload the pre-trained models as soon as possible.
