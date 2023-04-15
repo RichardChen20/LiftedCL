@@ -24,14 +24,32 @@ url={https://openreview.net/forum?id=WHlt5tLz12T}
 </p>
 
 ## Updates
+```
+[04/2023] Training codes release!
 
 [03/2023] Pre-trained ResNet-50 model (IN+CC 200 epoch) release!
 
 [01/2023] LiftedCL has been accepted to ICLR 2023:partying_face:!
+```
 
-### Notes
+## Requirements
+```
+Pytorch (we test our codes with 1.11)
+torchvision
+```
 
-This is my last year as a master student, I am busy writing my thesis and preparing for my graduation. I'll try my best to clean the codes and upload the pre-trained models as soon as possible.
+## Training
 
-Furthermore, we hope our work can inspire others when doing 3D-aware representation learning. Lifting and adv training is feasible for human-centric tasks, but how to do the 3D-aware representation learning for other tasks (e.g., Object Dection) is worth further research! 
+### training with only contrastive loss:
+```
+python train_cl.py --multiprocessing-distributed ./path_to_dataset
+```
+### training with adversarial loss:
+```
+python train_adv.py --multiprocessing-distributed ./path_to_dataset
+```
+
+## Notes
+
+We hope our work can inspire others when doing 3D-aware representation learning. Lifting and adv training is feasible for human-centric tasks, but there remains performance potential. Besides, how to do the 3D-aware representation learning for other tasks (e.g., Object Dection) is worth further research! 
 
