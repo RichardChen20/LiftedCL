@@ -29,7 +29,7 @@ url={https://openreview.net/forum?id=WHlt5tLz12T}
 
 [03/2023] Pre-trained ResNet-50 model (IN+CC 200 epoch) release!
 
-[01/2023] LiftedCL has been accepted to ICLR 2023:partying_face:!
+[01/2023] LiftedCL has been accepted to ICLR 2023!
 ```
 
 ## Requirements
@@ -53,3 +53,6 @@ python train_adv.py --multiprocessing-distributed ./path_to_dataset
 
 We hope our work can inspire others when doing 3D-aware representation learning. Lifting and adv training is feasible for human-centric tasks, but there remains performance potential. Besides, how to do the 3D-aware representation learning for other tasks (e.g., Object Dection) is worth further research! 
 
+## Acknowledgements
+
+We would like to thank the [MoCo](https://github.com/facebookresearch/moco) for its open-source project.
