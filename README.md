@@ -3,11 +3,11 @@
   <img src="https://user-images.githubusercontent.com/53289490/222353213-a57db9b2-1177-4260-8703-9240c923f368.png" width="800">
 </p>
 
-[[`paper`](https://openreview.net/forum?id=WHlt5tLz12T)]
+[[`paper`](https://openreview.net/pdf?id=WHlt5tLz12T)]
 [[`Project Page`](https://richardchen20.github.io/LiftedCL/)]
 [[`Weights`](https://drive.google.com/file/d/1hCKUx8pXctfDBXVKw32VTuX1Nb637BlD/view?usp=sharing)]
 
-This is a PyTorch implementation of the ICLR23 paper: [LiftedCL](https://openreview.net/forum?id=WHlt5tLz12T):
+This is a PyTorch implementation of the ICLR23 paper: [LiftedCL](https://openreview.net/pdf?id=WHlt5tLz12T):
 ```
 @inproceedings{
 chen2023liftedcl,
